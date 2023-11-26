@@ -14,6 +14,7 @@ import java.sql.SQLException;
 
 import com.DB.DBconnect;
 import com.helperFunctions.HelperFunctions;
+import com.user.UserDetails;
 import com.DAO.*;
 /**
  * Servlet implementation class LoginServlet
@@ -34,8 +35,7 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
 	}
 
 	/**
@@ -61,14 +61,16 @@ public class LoginServlet extends HttpServlet {
 			// dao
 			UserDAO dao = new UserDAO(conn);
 			// validation
-			String valid = dao.validateUser(email, password);
+			UserDetails validUser = dao.validateUser(email, password);
 			
-			if(valid!=null) {
-				session.setAttribute("name", valid);
+			if(validUser!=null) {
+				session.setAttribute("name", validUser.getName());
+				session.setAttribute("userD", validUser);
 				dispatcher = request.getRequestDispatcher("showNotes.jsp");
 			}else {
 				request.setAttribute("status","failed");
 				dispatcher = request.getRequestDispatcher("login.jsp");
+
 			}
 			dispatcher.forward(request, response);
 		}catch (Exception e) {

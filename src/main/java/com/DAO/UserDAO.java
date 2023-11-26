@@ -33,6 +33,8 @@ public class UserDAO {
 			st.setString(3, userDetails.getMobile());
 			st.setString(4, userDetails.getPassword());
 			
+			
+			
 			int count = st.executeUpdate();
 			
 			if(count>0) {
@@ -46,8 +48,8 @@ public class UserDAO {
 		return done;
 	}
 	
-	public String validateUser(String email,String password) {
-		String name =null;
+	public UserDetails validateUser(String email,String password) {
+		UserDetails user = null;
 		String query = Queries.loginSelect;
 		try {
 			PreparedStatement st = conn.prepareStatement(query);
@@ -56,14 +58,21 @@ public class UserDAO {
 			ResultSet set =  st.executeQuery();
 			
 			if(set.next()) {
-				name=set.getString("name");
+				
+				user = new UserDetails();
+				user.setName(set.getString("name"));
+				user.setEmail(email);
+				user.setMobile(set.getString("mobile"));
+				user.setPassword(password);
+				
 			}
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		return name;
+		return user;
 	}
 	
 	

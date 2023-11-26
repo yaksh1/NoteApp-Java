@@ -60,12 +60,12 @@ public class RegisterServlet extends HttpServlet {
 		Connection conn= null;
 		
 		// helper functions for server-side validation
-//		HelperFunctions.checkEmpty("emptyName","register.jsp",uname,request,dispatcher,response);
-//		HelperFunctions.checkEmpty("emptyEmail","register.jsp",uemail,request,dispatcher,response);
-//		HelperFunctions.checkEmpty("emptyPassword","register.jsp",upw,request,dispatcher,response);
-//		HelperFunctions.resetPassEqualsPass("passwordDontMatch","register.jsp",upw,rePass,request,dispatcher,response);
-//		HelperFunctions.checkEmpty("emptyMobile","register.jsp",umobile,request,dispatcher,response);
-//		HelperFunctions.mobileValidation("invalidMobileLength","register.jsp",umobile,request,dispatcher,response);
+		HelperFunctions.checkEmpty("emptyName","register.jsp",uname,request,dispatcher,response);
+		HelperFunctions.checkEmpty("emptyEmail","register.jsp",uemail,request,dispatcher,response);
+		HelperFunctions.checkEmpty("emptyPassword","register.jsp",upw,request,dispatcher,response);
+		HelperFunctions.resetPassEqualsPass("passwordDontMatch","register.jsp",upw,rePass,request,dispatcher,response);
+		HelperFunctions.checkEmpty("emptyMobile","register.jsp",umobile,request,dispatcher,response);
+		HelperFunctions.mobileValidation("invalidMobileLength","register.jsp",umobile,request,dispatcher,response);
 		
 		try {
 			// db connection
