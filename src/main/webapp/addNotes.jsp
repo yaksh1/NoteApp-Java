@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+	<%
+if(session.getAttribute("name")==null){
+	response.sendRedirect("login.jsp");
+}
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,17 +26,27 @@
 
 				
 					<h5 class="text-center text-success"></h5>
-					<form action="" method="post" id="form-box" class="p-2 px-5">
+					<form action="addNotes" method="post" id="form-box" class="p-2 px-5">
+						
+						<%
+							if(user!=null){%>
+								<!-- user id retrieval -->
+							<input type="hidden" name="uid" value="<%= user.getUserId() %>">
+							<%}
+						
+						%>
 						<div class="form-group input-group">
-
-							<input type="text" name="name" class="form-control"
-								placeholder="Enter title" required>
+						
+						
+							
+							<input type="text" name="title" class="form-control"
+								placeholder="Enter title" required="required">
 						</div>
 
 						<div class="form-group input-group">
 
-							<textarea name="msg" id="msg" class="form-control"
-								placeholder="Write your note" cols="30" rows="8" required></textarea>
+							<textarea name="noteContent" id="msg" class="form-control"
+								placeholder="Write your note" cols="30" rows="8" required="required"></textarea>
 						</div>
 						<div class="form-group text-center mb-3">
 							<button type="submit" class="btn btn-primary">Add note</button>

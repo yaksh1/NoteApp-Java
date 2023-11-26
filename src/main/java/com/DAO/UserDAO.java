@@ -60,6 +60,7 @@ public class UserDAO {
 			if(set.next()) {
 				
 				user = new UserDetails();
+				user.setUserId(set.getInt("id"));
 				user.setName(set.getString("name"));
 				user.setEmail(email);
 				user.setMobile(set.getString("mobile"));

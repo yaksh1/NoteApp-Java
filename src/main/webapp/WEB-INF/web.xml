@@ -11,32 +11,12 @@
   </welcome-file-list>
   <servlet>
     <description></description>
-    <display-name>LoginServlet</display-name>
-    <servlet-name>LoginServlet</servlet-name>
-    <servlet-class>com.views.login.LoginServlet</servlet-class>
+    <display-name>ShowNotesServlet</display-name>
+    <servlet-name>ShowNotesServlet</servlet-name>
+    <servlet-class>com.views.showNotes.ShowNotesServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>LoginServlet</servlet-name>
-    <url-pattern>/LoginServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>RegisterServlet</display-name>
-    <servlet-name>RegisterServlet</servlet-name>
-    <servlet-class>com.views.register.RegisterServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>RegisterServlet</servlet-name>
-    <url-pattern>/RegisterServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>Logout</display-name>
-    <servlet-name>Logout</servlet-name>
-    <servlet-class>com.views.logout.Logout</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Logout</servlet-name>
-    <url-pattern>/Logout</url-pattern>
+    <servlet-name>ShowNotesServlet</servlet-name>
+    <url-pattern>/ShowNotesServlet</url-pattern>
   </servlet-mapping>
 </web-app>

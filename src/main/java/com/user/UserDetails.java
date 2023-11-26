@@ -1,6 +1,7 @@
 package com.user;
 
 public class UserDetails {
+	private int userId;
 	private String name;
 	private String email;
 	private String mobile;
@@ -81,6 +82,14 @@ public class UserDetails {
 		this.password = password;
 	}
 	
+	
+	public int getUserId() {
+		return userId;
+	}
+	
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 	
 	
 }

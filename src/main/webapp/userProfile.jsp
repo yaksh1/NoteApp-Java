@@ -23,6 +23,7 @@
               <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2-bg.webp"
                 class="rounded-circle img-fluid" style="width: 100px;" />
             </div>
+            <h4 class="mb-4">ID: <%= user.getUserId()%></h4>
             <h4 class="mb-4">Name: <%= user.getName() %></h4>
             <h4 class="mb-4">Email: <%= user.getEmail() %></h4>
             <h4 class="mb-4">Mobile: <%= user.getMobile() %></h4>
