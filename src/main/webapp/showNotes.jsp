@@ -11,6 +11,7 @@
 
 <%
 if (session.getAttribute("name") == null) {
+	session.setAttribute("RegisterStatus", "failed");
 	response.sendRedirect("login.jsp");
 }
 %>

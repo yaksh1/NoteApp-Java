@@ -84,6 +84,8 @@
 		swal("Sorry","Please enter your password","error");
 	}else if(RegisterStatus=="success"){
 		swal("Congrats","Account created successfully","success");
+	}else if(RegisterStatus=="failed"){
+		swal("","Please login to continue","error");
 	}
 	</script>
 	<% session.removeAttribute("RegisterStatus");%>
