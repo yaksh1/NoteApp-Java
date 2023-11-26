@@ -42,7 +42,7 @@ public class DeleteNote extends HttpServlet {
 			}
 			
 		}catch (Exception e){
-			
+			e.printStackTrace();
 		}
 	}
 

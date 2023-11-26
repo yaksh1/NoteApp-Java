@@ -6,6 +6,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -66,14 +68,19 @@ public class RegisterServlet extends HttpServlet {
 			// add user
 			boolean added = dao.addUser(user);
 //			
-			dispatcher = request.getRequestDispatcher("register.jsp");
+			
 			if(added) {
-				request.setAttribute("status", "success");
+				HttpSession session = request.getSession();
+				session.setAttribute("RegisterStatus", "success");
+				
+				response.sendRedirect("login.jsp");
 				
 			}else {
-				request.setAttribute("status", "failed");
+				HttpSession session = request.getSession();
+				session.setAttribute("RegisterStatus", "failed");
+				response.sendRedirect("register.jsp");
 			}
-			dispatcher.forward(request, response);
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

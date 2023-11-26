@@ -10,6 +10,7 @@
 </head>
 <body>
 	<input type="hidden" id="status" value="<%= request.getAttribute("status") %>">
+	<input type="hidden" id="RegisterStatus" value="<%= session.getAttribute("RegisterStatus") %>">
 	<%@include file = "allComponent/navbar.jsp" %>
 	<div class="main">
 
@@ -74,14 +75,18 @@
 	
 	<script type="text/javascript">
 	var status = document.getElementById("status").value;
+	var RegisterStatus = document.getElementById("RegisterStatus").value;
 	if(status=="failed"){
 		swal("Error","Please Check your login credentials","error");
 	}else if(status=="invalidEmail"){
 		swal("Sorry","Please enter your email","error");
 	}else if(status=="emptyPassword"){
 		swal("Sorry","Please enter your password","error");
+	}else if(RegisterStatus=="success"){
+		swal("Congrats","Account created successfully","success");
 	}
 	</script>
+	<% session.removeAttribute("RegisterStatus");%>
 </body>
 <!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>
