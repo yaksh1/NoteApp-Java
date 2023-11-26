@@ -113,6 +113,25 @@ public class PostDAO {
 		return done;
 	}
 	
+	public boolean deleteNote(int id) {
+		boolean done = false;
+		
+		try {
+			String query = Queries.deleteNote;
+			PreparedStatement st = conn.prepareStatement(query);
+			st.setInt(1, id);
+			
+			int count = st.executeUpdate();
+			if(count>0) {
+				done = true;
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return done;
+	}
+	
 	
 
 }

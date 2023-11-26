@@ -14,4 +14,6 @@ public class Queries {
 	public static String editPost = "SELECT * FROM posts where postId = ?";
 	public static String postEditedNote = "UPDATE posts set postTitle=?,postContent=? where postId=?";
 	
+	public static String deleteNote = "DELETE FROM posts WHERE postId=?";
+	
 }
