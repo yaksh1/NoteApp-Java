@@ -1,4 +1,6 @@
-Note Taking Web App using java Servlet, JDBC, MySQL
+<pre>
+Note Taking Web App using java Servlet, JDBC, MySQL  
+</pre>
 
 
 ## Prerequisites
