@@ -11,4 +11,7 @@ public class Queries {
 	public static String addPost = "INSERT INTO posts(postTitle,postContent,uid) values(?,?,?)";
 	public static String getNotes = "SELECT * FROM posts where uid = ? ORDER BY postId DESC";
 	
+	public static String editPost = "SELECT * FROM posts where postId = ?";
+	public static String postEditedNote = "UPDATE posts set postTitle=?,postContent=? where postId=?";
+	
 }

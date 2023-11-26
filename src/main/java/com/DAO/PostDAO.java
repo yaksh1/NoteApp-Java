@@ -72,5 +72,47 @@ public class PostDAO {
 
 		return list;
 	}
+	
+	public PostDetails getDataById(int editId) {
+		PostDetails post=null;
+		try {
+			String query = Queries.editPost;
+			PreparedStatement st = conn.prepareStatement(query);
+			st.setInt(1, editId);
+
+			ResultSet rs = st.executeQuery();
+			
+			if(rs.next()) {
+				post = new PostDetails();
+				post.setPostId(rs.getInt(1));
+				post.setPostTile(rs.getString(2));
+				post.setPostContent(rs.getString(3));
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return post;
+	}
+	
+	public boolean postEdit(int nid,String title,String content) {
+		boolean done=false;
+		try {
+			String query = Queries.postEditedNote;
+			PreparedStatement st = conn.prepareStatement(query);
+			st.setString(1, title);
+			st.setString(2, content);
+			st.setInt(3, nid);
+			
+			int count = st.executeUpdate();
+			if(count>0) {
+				done=true;
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return done;
+	}
+	
+	
 
 }

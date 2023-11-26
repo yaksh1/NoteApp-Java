@@ -19,4 +19,14 @@
     <servlet-name>ShowNotesServlet</servlet-name>
     <url-pattern>/ShowNotesServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditNotesServlet</display-name>
+    <servlet-name>EditNotesServlet</servlet-name>
+    <servlet-class>com.views.editNotes.EditNotesServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditNotesServlet</servlet-name>
+    <url-pattern>/EditNotesServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

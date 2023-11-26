@@ -22,7 +22,7 @@ if (session.getAttribute("name") == null) {
 <%@include file="allComponent/allCss.jsp"%>
 </head>
 <body>
-
+<input type="hidden" id="status" value="<%= request.getAttribute("updated") %>">
 	<div class="container-fluid p-0">
 		<%@include file="allComponent/navbar.jsp"%>
 		
@@ -59,8 +59,10 @@ if (session.getAttribute("name") == null) {
 							<p>
 							<b class="text-success">Published Date: <%= post.getDate() %></b><br><b class="text-primary"></b>
 							</p>
-							<a href="#" class="btn btn-primary">Edit</a> <a href="#"
-								class="btn btn-primary">Delete</a>
+							<a href="editPost.jsp?note_id=<%= post.getPostId() %>" class="btn btn-primary">Edit</a> 
+							
+							<a href="#"
+								class="btn btn-danger">Delete</a>
 						</div>
 					</div>
 					<%
@@ -72,6 +74,15 @@ if (session.getAttribute("name") == null) {
 			</div>
 		</div>
 	</div>
-
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<link rel="stylesheet" href="alert/dist/sweetalert.css">
+	
+	<script type="text/javascript">
+	var status = document.getElementById("status").value;
+	if(status=="success"){
+		swal("","Note updated successfully","success");
+	}
+	</script>
+	
 </body>
 </html>
